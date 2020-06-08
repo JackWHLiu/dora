@@ -17,10 +17,21 @@ public class StoragePolicy extends CrashReportPolicyWrapper {
 
     private String mFolderName = "android-dora"; //手机系统根目录保存日志文件夹的名称
 
+    public StoragePolicy(CrashReportPolicy policy) {
+        super(policy);
+    }
+
     public StoragePolicy() {
+        super(null);
+    }
+
+    public StoragePolicy(CrashReportPolicy policy, String folderName) {
+        super(policy);
+        this.mFolderName = folderName;
     }
 
     public StoragePolicy(String folerName) {
+        super(null);
         this.mFolderName = folerName;
     }
 

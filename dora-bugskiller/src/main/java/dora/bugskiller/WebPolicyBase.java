@@ -4,7 +4,21 @@ public abstract class WebPolicyBase extends CrashReportPolicyWrapper {
 
     String mReportUrl;
 
+    protected WebPolicyBase(CrashReportPolicy policy) {
+        super(policy);
+    }
+
+    protected WebPolicyBase(CrashReportPolicy policy, String url) {
+        super(policy);
+        this.mReportUrl = url;
+    }
+
+    protected WebPolicyBase() {
+        super(null);
+    }
+
     protected WebPolicyBase(String url) {
+        super(null);
         this.mReportUrl = url;
     }
 
