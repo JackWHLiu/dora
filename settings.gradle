@@ -1,2 +1,2 @@
 include ':dora-bugskiller'
-rootProject.name = "dora-bugskiller"
+rootProject.name = "dora"
