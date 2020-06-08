@@ -11,5 +11,5 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.JackWHLiu:dora:1.0'
+    implementation 'com.github.JackWHLiu:dora:1.2'
 }
