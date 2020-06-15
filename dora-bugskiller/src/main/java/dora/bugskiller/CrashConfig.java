@@ -4,7 +4,8 @@ import android.content.Context;
 
 public class CrashConfig {
 
-    CrashReportPolicy policy;   //崩溃日志上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义
+    CrashReportPolicy policy;   //崩溃信息上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义
+    CrashReportFilter filter;   //决定是否要上报该次崩溃信息
     CrashInfo info;     //包含崩溃信息内容
     boolean testOnly;   //true则只在debug包收集崩溃日志，false在debug和release包收集崩溃日志
     boolean enabled;    //是否开启崩溃日志收集功能，不开启则testOnly功能无效
@@ -12,6 +13,7 @@ public class CrashConfig {
 
     public CrashConfig(Builder builder) {
         policy = builder.policy;
+        filter = builder.filter;
         info = builder.info;
         testOnly = builder.testOnly;
         enabled = builder.enabled;
@@ -21,6 +23,7 @@ public class CrashConfig {
     public static class Builder {
 
         CrashReportPolicy policy = new StoragePolicy();
+        CrashReportFilter filter = new DefaultFilter();
         CrashInfo info;
         boolean enabled = true;
         boolean testOnly = true;
@@ -34,6 +37,11 @@ public class CrashConfig {
 
         public Builder crashReportPolicy(CrashReportPolicy policy) {
             this.policy = policy;
+            return this;
+        }
+
+        public Builder filterChain(CrashReportFilter filter) {
+            this.filter = filter;
             return this;
         }
 

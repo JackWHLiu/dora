@@ -27,10 +27,17 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
+    public Context getContext() {
+        return mContext;
+    }
+
     @Override
     public void uncaughtException(Thread t, Throwable e) {
         if (mConfig.enabled && (!mConfig.testOnly || (mConfig.testOnly && BuildConfig.DEBUG))) {
-            interceptException(t, e);
+            boolean filterResult = mConfig.filter.filterCrashInfo(mConfig.info);
+            if (filterResult) {
+                interceptException(t, e);
+            }
         }
         if (!mConfig.interceptCrash) {
             //如果系统提供了异常处理类，则交给系统去处理

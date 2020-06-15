@@ -1,6 +1,9 @@
 package dora.bugskiller;
 
-public interface CrashReportPolicy {
+/**
+ * 请继承它的实现类CrashReportPolicyWrapper。
+ */
+interface CrashReportPolicy {
 
     void report(CrashInfo info);
 }

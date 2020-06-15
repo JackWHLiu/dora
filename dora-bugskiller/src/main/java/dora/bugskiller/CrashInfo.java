@@ -47,6 +47,38 @@ public class CrashInfo {
         brand = Build.MANUFACTURER;
     }
 
+    public String getVersionName() {
+        return versionName;
+    }
+
+    public int getVersionCode() {
+        return versionCode;
+    }
+
+    public int getSdkVersion() {
+        return sdkVersion;
+    }
+
+    public String getRelease() {
+        return release;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public Thread getThread() {
+        return thread;
+    }
+
+    public Throwable getThrowable() {
+        return throwable;
+    }
+
     public Context getContext() {
         return context;
     }
