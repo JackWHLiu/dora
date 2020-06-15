@@ -32,7 +32,7 @@ dependencies {
 
 	DefaultFilter 	//不做过滤处理
 	
-	TimeFilter	//只处理上班时间产生的崩溃信息	、、
+	TimeFilter	//只处理上班时间产生的崩溃信息	
 	
 	ActivityThreadFilter	//只处理主线程的崩溃信息
 
