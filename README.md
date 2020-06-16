@@ -11,24 +11,30 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.JackWHLiu:dora:1.2'
+    implementation 'com.github.JackWHLiu:dora:1.4'
 }
 
 示例代码：https://github.com/JackWHLiu/DoraDemo.git
 
 示例策略：					
 
-					LogPolicy	//日志策略，仅供入门学习
+	LogPolicy	//日志策略，仅供入门学习
 					
-					StoragePolicy	//SD卡存储策略，推荐
+	StoragePolicy	//SD卡存储策略，推荐
 	
-					WebPolicy	//网页查看策略，需要联网
+	WebPolicy	//网页查看策略，需要联网
 	
-					EmailPolicy	//邮件接收策略，被动、及时
+	EmailPolicy	//邮件接收策略，被动、及时
 	
-					MessagePolicy	//短信策略，有一定成本
+	MessagePolicy	//短信策略，有一定成本
 
+示例过滤器：
 
+	DefaultFilter 	//不做过滤处理
+	
+	TimeFilter	//只处理上班时间产生的崩溃信息	
+	
+	ActivityThreadFilter	//只处理主线程的崩溃信息
 
 Extras, you can provide us your suggestions in order to help us develop future products and services.
 另外，你可以提供给我们你的建议，为了帮助我们未来的产品和服务的开发。
