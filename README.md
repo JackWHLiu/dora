@@ -11,7 +11,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.JackWHLiu:dora:1.4'
+    implementation 'com.github.JackWHLiu:dora:1.5'
 }
 
 示例代码：https://github.com/JackWHLiu/DoraDemo.git
@@ -36,6 +36,16 @@ dependencies {
 	
 	ActivityThreadFilter	//只处理主线程的崩溃信息
 
+示例分组：
+	
+	DefaultGroup 	//默认分组，则不分组
+	
+	AndroidVersionGroup 	//按Android手机大版本号分组，比如Android10
+	
+	BrandGroup		//按Android手机品牌分组，比如vivo、OPPO
+	
+	ComplexGroup		//按交集、并集或补集来组合2种以上分组
+	
 Extras, you can provide us your suggestions in order to help us develop future products and services.
 另外，你可以提供给我们你的建议，为了帮助我们未来的产品和服务的开发。
 
