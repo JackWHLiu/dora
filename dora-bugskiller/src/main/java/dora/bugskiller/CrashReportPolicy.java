@@ -5,5 +5,7 @@ package dora.bugskiller;
  */
 interface CrashReportPolicy {
 
-    void report(CrashInfo info);
+    void report(CrashInfo info, CrashReportGroup group);
+
+    CrashReportGroup getGroup();
 }

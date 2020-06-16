@@ -13,7 +13,7 @@ public class CrashCollector extends Collector {
     public void reportCrash(Thread thread, CrashReportPolicy policy) {
         if (mInfo != null) {
             mInfo.setThread(thread);
-            policy.report(mInfo);
+            policy.report(mInfo, policy.getGroup());
         }
     }
 }

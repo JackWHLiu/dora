@@ -14,8 +14,12 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
     private String mTitle;   //接收者的Email标题
     private String mEmailServerUrl = "http://47.75.216.2:8080/requestCrashEmail";
 
-    protected EmailPolicy(CrashReportPolicy policy, String email, String title) {
-        super(policy);
+    public EmailPolicy(CrashReportPolicy policy, String email, String title) {
+        this(new DefaultGroup(), policy, email, title);
+    }
+
+    public EmailPolicy(CrashReportGroup group, CrashReportPolicy policy, String email, String title) {
+        super(group, policy);
         this.mEmail = email;
         this.mTitle = title;
     }
@@ -25,10 +29,10 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
     }
 
     @Override
-    public void report(CrashInfo info) {
-        super.report(info);
+    public void report(CrashInfo info, CrashReportGroup group) {
+        super.report(info, group);
         OkHttpClient client = new OkHttpClient();
-        HashMap<String,String> params = new HashMap<>();
+        HashMap<String, String> params = new HashMap<>();
         params.put("crash_info", info.toString());
         params.put("email", mEmail);
         params.put("title", mTitle);

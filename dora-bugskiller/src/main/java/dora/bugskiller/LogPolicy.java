@@ -13,26 +13,42 @@ public class LogPolicy extends CrashReportPolicyWrapper {
     private int mLevel = LOG_LEVEL_DEBUG;
 
     public LogPolicy(CrashReportPolicy policy) {
-        super(policy);
+        this(new DefaultGroup(), policy);
+    }
+
+    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
     }
 
     public LogPolicy() {
-        super(null);
+        this(new DefaultGroup());
+    }
+
+    public LogPolicy(CrashReportGroup group) {
+        super(group, null);
     }
 
     public LogPolicy(CrashReportPolicy policy, int level) {
-        super(policy);
+        this(new DefaultGroup(), policy, level);
+    }
+
+    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy, int level) {
+        super(group, policy);
         this.mLevel = level;
     }
 
     public LogPolicy(int level) {
-        super(null);
+        this(new DefaultGroup(), level);
+    }
+
+    public LogPolicy(CrashReportGroup group, int level) {
+        super(group, null);
         this.mLevel = level;
     }
 
     @Override
-    public void report(final CrashInfo info) {
-        super.report(info);
+    public void report(final CrashInfo info, CrashReportGroup group) {
+        super.report(info, group);
         if (mLevel == LOG_LEVEL_DEBUG) {
             Log.d("dora", info.toString());
         }

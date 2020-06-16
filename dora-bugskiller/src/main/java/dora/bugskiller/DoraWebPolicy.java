@@ -14,12 +14,20 @@ public class DoraWebPolicy extends WebPolicyBase {
         super(policy, url);
     }
 
+    public DoraWebPolicy(CrashReportGroup group, CrashReportPolicy policy, String url) {
+        super(group, policy, url);
+    }
+
     public DoraWebPolicy(String url) {
         super(url);
     }
 
+    public DoraWebPolicy(CrashReportGroup group, String url) {
+        super(group, url);
+    }
+
     @Override
-    public void sendCrashInfoToWeb(String url, CrashInfo info) {
+    public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
         OkHttpClient client = new OkHttpClient();
         HashMap<String,String> params = new HashMap<>();
         params.put("crash_info", info.toString());

@@ -18,26 +18,42 @@ public class StoragePolicy extends CrashReportPolicyWrapper {
     private String mFolderName = "android-dora"; //手机系统根目录保存日志文件夹的名称
 
     public StoragePolicy(CrashReportPolicy policy) {
-        super(policy);
+        this(new DefaultGroup(), policy);
+    }
+
+    public StoragePolicy(CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
     }
 
     public StoragePolicy() {
-        super(null);
+        this(new DefaultGroup());
+    }
+
+    public StoragePolicy(CrashReportGroup group) {
+        super(group, null);
     }
 
     public StoragePolicy(CrashReportPolicy policy, String folderName) {
-        super(policy);
+        this(new DefaultGroup(), policy, folderName);
+    }
+
+    public StoragePolicy(CrashReportGroup group, CrashReportPolicy policy, String folderName) {
+        super(group, policy);
         this.mFolderName = folderName;
     }
 
-    public StoragePolicy(String folerName) {
-        super(null);
-        this.mFolderName = folerName;
+    public StoragePolicy(String folderName) {
+        this(new DefaultGroup(), folderName);
+    }
+
+    public StoragePolicy(CrashReportGroup group, String folderName) {
+        super(group, null);
+        this.mFolderName = folderName;
     }
 
     @Override
-    public void report(CrashInfo info) {
-        super.report(info);
+    public void report(CrashInfo info, CrashReportGroup group) {
+        super.report(info, group);
         try {
             String path = Environment.getExternalStorageDirectory().getAbsolutePath();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
