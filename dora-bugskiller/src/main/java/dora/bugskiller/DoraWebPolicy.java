@@ -8,6 +8,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
+/**
+ * Huh!I make it out of okhttp network framework.
+ * 哈！我以网络框架okhttp为原材料制作了它。
+ */
 public class DoraWebPolicy extends WebPolicyBase {
 
     public DoraWebPolicy(CrashReportPolicy policy, String url) {

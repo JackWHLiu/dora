@@ -31,6 +31,8 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
     @Override
     public void report(CrashInfo info, CrashReportGroup group) {
         super.report(info, group);
+        // The usage is similar to DoraWebPolicy.
+        // 用法和DoraWebPolicy相似。
         OkHttpClient client = new OkHttpClient();
         HashMap<String, String> params = new HashMap<>();
         params.put("crash_info", info.toString());

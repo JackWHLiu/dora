@@ -55,6 +55,8 @@ public class CrashConfig {
             return this;
         }
 
+        // Determines if you want to activate all functions of this framework.
+        // 确定你是否想要激活属于这个框架的所有功能。
         public Builder enabled(boolean enabled) {
             this.enabled = enabled;
             return this;
