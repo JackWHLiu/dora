@@ -32,22 +32,24 @@ public class DoraWebPolicy extends WebPolicyBase {
 
     @Override
     public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
-        OkHttpClient client = new OkHttpClient();
-        HashMap<String,String> params = new HashMap<>();
-        params.put("crash_info", info.toString());
-        FormEncodingBuilder builder = new FormEncodingBuilder();
-        for (String key : params.keySet()) {
-            builder.add(key, params.get(key));
-        }
-        RequestBody body = builder.build();
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
-        try {
-            client.newCall(request).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (group.counts()) {
+            OkHttpClient client = new OkHttpClient();
+            HashMap<String, String> params = new HashMap<>();
+            params.put("crash_info", info.toString());
+            FormEncodingBuilder builder = new FormEncodingBuilder();
+            for (String key : params.keySet()) {
+                builder.add(key, params.get(key));
+            }
+            RequestBody body = builder.build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .post(body)
+                    .build();
+            try {
+                client.newCall(request).execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

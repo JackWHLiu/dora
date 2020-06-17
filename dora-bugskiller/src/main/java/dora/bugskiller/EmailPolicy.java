@@ -31,26 +31,28 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
     @Override
     public void report(CrashInfo info, CrashReportGroup group) {
         super.report(info, group);
-        // The usage is similar to DoraWebPolicy.
-        // 用法和DoraWebPolicy相似。
-        OkHttpClient client = new OkHttpClient();
-        HashMap<String, String> params = new HashMap<>();
-        params.put("crash_info", info.toString());
-        params.put("email", mEmail);
-        params.put("title", mTitle);
-        FormEncodingBuilder builder = new FormEncodingBuilder();
-        for (String key : params.keySet()) {
-            builder.add(key, params.get(key));
-        }
-        RequestBody body = builder.build();
-        Request request = new Request.Builder()
-                .url(mEmailServerUrl)
-                .post(body)
-                .build();
-        try {
-            client.newCall(request).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (group.counts()) {
+            // The usage is similar to DoraWebPolicy.
+            // 用法和DoraWebPolicy相似。
+            OkHttpClient client = new OkHttpClient();
+            HashMap<String, String> params = new HashMap<>();
+            params.put("crash_info", info.toString());
+            params.put("email", mEmail);
+            params.put("title", mTitle);
+            FormEncodingBuilder builder = new FormEncodingBuilder();
+            for (String key : params.keySet()) {
+                builder.add(key, params.get(key));
+            }
+            RequestBody body = builder.build();
+            Request request = new Request.Builder()
+                    .url(mEmailServerUrl)
+                    .post(body)
+                    .build();
+            try {
+                client.newCall(request).execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

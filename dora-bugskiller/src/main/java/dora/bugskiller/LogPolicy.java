@@ -49,14 +49,16 @@ public class LogPolicy extends CrashReportPolicyWrapper {
     @Override
     public void report(final CrashInfo info, CrashReportGroup group) {
         super.report(info, group);
-        if (mLevel == LOG_LEVEL_DEBUG) {
-            Log.d("dora", info.toString());
-        }
-        if (mLevel == LOG_LEVEL_INFO) {
-            Log.i("dora", info.toString());
-        }
-        if (mLevel == LOG_LEVEL_ERROR) {
-            Log.e("dora", info.toString());
+        if (group.counts()) {
+            if (mLevel == LOG_LEVEL_DEBUG) {
+                Log.d("dora", info.toString());
+            }
+            if (mLevel == LOG_LEVEL_INFO) {
+                Log.i("dora", info.toString());
+            }
+            if (mLevel == LOG_LEVEL_ERROR) {
+                Log.e("dora", info.toString());
+            }
         }
     }
 }

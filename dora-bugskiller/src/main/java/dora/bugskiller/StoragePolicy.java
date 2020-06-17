@@ -55,20 +55,22 @@ public class StoragePolicy extends CrashReportPolicyWrapper {
     public void report(CrashInfo info, CrashReportGroup group) {
         super.report(info, group);
         try {
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-            String time = simpleDateFormat.format(new Date());
-            File folder = new File(path, mFolderName);
-            folder.mkdirs();
-            File file = new File(folder.getAbsolutePath(), "log" + time + ".txt");
-            if (!file.exists()) {
-                file.createNewFile();
+            if (group.counts()) {
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+                String time = simpleDateFormat.format(new Date());
+                File folder = new File(path, mFolderName);
+                folder.mkdirs();
+                File file = new File(folder.getAbsolutePath(), "log" + time + ".txt");
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                byte[] buffer = info.toString().trim().getBytes();
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                fileOutputStream.write(buffer, 0, buffer.length);
+                fileOutputStream.flush();
+                fileOutputStream.close();
             }
-            byte[] buffer = info.toString().trim().getBytes();
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(buffer, 0, buffer.length);
-            fileOutputStream.flush();
-            fileOutputStream.close();
         } catch (IOException e) {
             Log.e("dora", "崩溃日志信息存储失败");
             Process.killProcess(Process.myPid());
