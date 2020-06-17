@@ -3,7 +3,7 @@ package dora.bugskiller;
 /**
  * 请继承它的实现类CrashReportPolicyWrapper。
  */
-interface CrashReportPolicy {
+public interface CrashReportPolicy {
 
     void report(CrashInfo info, CrashReportGroup group);
 
