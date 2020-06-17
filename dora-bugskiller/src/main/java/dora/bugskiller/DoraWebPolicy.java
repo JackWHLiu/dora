@@ -1,12 +1,12 @@
 package dora.bugskiller;
 
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+
 import java.io.IOException;
 import java.util.HashMap;
-
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
 
 /**
  * Huh!I make it out of okhttp network framework.
@@ -35,7 +35,7 @@ public class DoraWebPolicy extends WebPolicyBase {
         OkHttpClient client = new OkHttpClient();
         HashMap<String,String> params = new HashMap<>();
         params.put("crash_info", info.toString());
-        FormBody.Builder builder = new FormBody.Builder();
+        FormEncodingBuilder builder = new FormEncodingBuilder();
         for (String key : params.keySet()) {
             builder.add(key, params.get(key));
         }

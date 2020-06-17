@@ -1,12 +1,12 @@
 package dora.bugskiller;
 
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+
 import java.io.IOException;
 import java.util.HashMap;
-
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
 
 public class EmailPolicy extends CrashReportPolicyWrapper {
 
@@ -38,7 +38,7 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
         params.put("crash_info", info.toString());
         params.put("email", mEmail);
         params.put("title", mTitle);
-        FormBody.Builder builder = new FormBody.Builder();
+        FormEncodingBuilder builder = new FormEncodingBuilder();
         for (String key : params.keySet()) {
             builder.add(key, params.get(key));
         }
