@@ -40,7 +40,7 @@ dependencies {
 	
 	DefaultGroup 	//默认分组，则不分组
 	
-	AndroidVersionGroup 	//按Android手机大版本号分组，比如Android10
+	AndroidVersionGroup 	//按Android手机版本号分组，比如Android10
 	
 	BrandGroup		//按Android手机品牌分组，比如vivo、OPPO
 	
