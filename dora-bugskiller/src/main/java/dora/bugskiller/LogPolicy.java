@@ -12,37 +12,37 @@ public class LogPolicy extends CrashReportPolicyWrapper {
     public static final int LOG_LEVEL_ERROR = 2;
     private int mLevel = LOG_LEVEL_DEBUG;
 
-    public LogPolicy(CrashReportPolicy policy) {
-        this(new DefaultGroup(), policy);
-    }
-
-    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy) {
-        super(group, policy);
-    }
-
     public LogPolicy() {
         this(new DefaultGroup());
+    }
+
+    public LogPolicy(int level) {
+        this(level, new DefaultGroup());
     }
 
     public LogPolicy(CrashReportGroup group) {
         super(group, null);
     }
 
-    public LogPolicy(CrashReportPolicy policy, int level) {
-        this(new DefaultGroup(), policy, level);
+    public LogPolicy(CrashReportPolicy policy) {
+        this(new DefaultGroup(), policy);
     }
 
-    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy, int level) {
-        super(group, policy);
+    public LogPolicy(int level, CrashReportGroup group) {
+        super(group, null);
         this.mLevel = level;
     }
 
-    public LogPolicy(int level) {
-        this(new DefaultGroup(), level);
+    public LogPolicy(int level, CrashReportPolicy policy) {
+        this(level, new DefaultGroup(), policy);
     }
 
-    public LogPolicy(CrashReportGroup group, int level) {
-        super(group, null);
+    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
+    }
+
+    public LogPolicy(int level, CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
         this.mLevel = level;
     }
 

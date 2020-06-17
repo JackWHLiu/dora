@@ -33,7 +33,7 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        if (mConfig.enabled && (!mConfig.testOnly || (mConfig.testOnly && BuildConfig.DEBUG))) {
+        if (mConfig.enabled) {
             boolean filterResult = mConfig.filter.filterCrashInfo(mConfig.info);
             if (filterResult) {
                 interceptException(t, e);

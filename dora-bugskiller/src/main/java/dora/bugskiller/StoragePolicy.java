@@ -17,37 +17,37 @@ public class StoragePolicy extends CrashReportPolicyWrapper {
 
     private String mFolderName = "android-dora"; //手机系统根目录保存日志文件夹的名称
 
-    public StoragePolicy(CrashReportPolicy policy) {
-        this(new DefaultGroup(), policy);
-    }
-
-    public StoragePolicy(CrashReportGroup group, CrashReportPolicy policy) {
-        super(group, policy);
-    }
-
     public StoragePolicy() {
         this(new DefaultGroup());
+    }
+
+    public StoragePolicy(String folderName) {
+        this(folderName, new DefaultGroup());
     }
 
     public StoragePolicy(CrashReportGroup group) {
         super(group, null);
     }
 
-    public StoragePolicy(CrashReportPolicy policy, String folderName) {
-        this(new DefaultGroup(), policy, folderName);
+    public StoragePolicy(CrashReportPolicy policy) {
+        this(new DefaultGroup(), policy);
     }
 
-    public StoragePolicy(CrashReportGroup group, CrashReportPolicy policy, String folderName) {
-        super(group, policy);
+    public StoragePolicy(String folderName, CrashReportGroup group) {
+        super(group, null);
         this.mFolderName = folderName;
     }
 
-    public StoragePolicy(String folderName) {
-        this(new DefaultGroup(), folderName);
+    public StoragePolicy(String folderName, CrashReportPolicy policy) {
+        this(folderName, new DefaultGroup(), policy);
     }
 
-    public StoragePolicy(CrashReportGroup group, String folderName) {
-        super(group, null);
+    public StoragePolicy(CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
+    }
+
+    public StoragePolicy(String folderName, CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
         this.mFolderName = folderName;
     }
 

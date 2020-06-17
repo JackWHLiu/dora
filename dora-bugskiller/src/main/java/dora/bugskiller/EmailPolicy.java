@@ -14,11 +14,11 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
     private String mTitle;   //接收者的Email标题
     private String mEmailServerUrl = "http://47.75.216.2:8080/requestCrashEmail";
 
-    public EmailPolicy(CrashReportPolicy policy, String email, String title) {
-        this(new DefaultGroup(), policy, email, title);
+    public EmailPolicy(String email, String title, CrashReportPolicy policy) {
+        this(email, title, new DefaultGroup(), policy);
     }
 
-    public EmailPolicy(CrashReportGroup group, CrashReportPolicy policy, String email, String title) {
+    public EmailPolicy(String email, String title, CrashReportGroup group, CrashReportPolicy policy) {
         super(group, policy);
         this.mEmail = email;
         this.mTitle = title;

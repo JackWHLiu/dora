@@ -4,21 +4,20 @@ public abstract class WebPolicyBase extends CrashReportPolicyWrapper {
 
     String mReportUrl;
 
-    protected WebPolicyBase(CrashReportPolicy policy, String url) {
-        this(new DefaultGroup(), policy, url);
+    protected WebPolicyBase(String url) {
+        this(url, new DefaultGroup());
     }
 
-    protected WebPolicyBase(CrashReportGroup group, CrashReportPolicy policy, String url) {
-        super(group, policy);
+    protected WebPolicyBase(String url, CrashReportPolicy policy) {
+        this(url, new DefaultGroup(), policy);
+    }
+
+    protected WebPolicyBase(String url, CrashReportGroup group) {
+        super(group, null);
         this.mReportUrl = url;
     }
-
-    protected WebPolicyBase(String url) {
-        this(new DefaultGroup(), url);
-    }
-
-    protected WebPolicyBase(CrashReportGroup group, String url) {
-        super(group, null);
+    protected WebPolicyBase(String url, CrashReportGroup group, CrashReportPolicy policy) {
+        super(group, policy);
         this.mReportUrl = url;
     }
 

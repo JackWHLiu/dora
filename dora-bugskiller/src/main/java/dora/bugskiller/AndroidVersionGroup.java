@@ -4,15 +4,15 @@ import android.os.Build;
 
 public class AndroidVersionGroup implements CrashReportGroup {
 
-    private int num;
+    private String version;
 
-    public AndroidVersionGroup(int num) {
-        this.num = num;
+    public AndroidVersionGroup(String version) {
+        this.version = version;
     }
 
     @Override
     public boolean counts() {
-        return Build.VERSION.RELEASE.equals(num);
+        return Build.VERSION.RELEASE.equals(version);
     }
 
     @Override

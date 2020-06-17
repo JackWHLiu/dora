@@ -18,7 +18,7 @@ public class ComplexGroup implements CrashReportGroup {
     /**
      * 补集。
      */
-    public static final String SYMBOL_SUPPLEMENTARY_SET = "!";
+    public static final String SYMBOL_SUPPLEMENTARY_SET = "^";
 
     private String mSymbol;
     private CrashReportGroup mLeft;
@@ -59,6 +59,6 @@ public class ComplexGroup implements CrashReportGroup {
 
     @Override
     public String name() {
-        return mSymbol.equals(SYMBOL_SUPPLEMENTARY_SET)?(mSymbol+"("+mLeft+"+"+mRight+")"):"("+mLeft+mSymbol+mRight+")";
+        return mSymbol.equals(SYMBOL_SUPPLEMENTARY_SET)?(mSymbol+"("+mLeft+" "+mRight+")"):"("+mLeft+mSymbol+mRight+")";
     }
 }

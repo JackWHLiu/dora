@@ -14,20 +14,20 @@ import java.util.HashMap;
  */
 public class DoraWebPolicy extends WebPolicyBase {
 
-    public DoraWebPolicy(CrashReportPolicy policy, String url) {
-        super(policy, url);
-    }
-
-    public DoraWebPolicy(CrashReportGroup group, CrashReportPolicy policy, String url) {
-        super(group, policy, url);
-    }
-
-    public DoraWebPolicy(String url) {
+    protected DoraWebPolicy(String url) {
         super(url);
     }
 
-    public DoraWebPolicy(CrashReportGroup group, String url) {
-        super(group, url);
+    protected DoraWebPolicy(String url, CrashReportPolicy policy) {
+        super(url, policy);
+    }
+
+    protected DoraWebPolicy(String url, CrashReportGroup group) {
+        super(url, group);
+    }
+
+    protected DoraWebPolicy(String url, CrashReportGroup group, CrashReportPolicy policy) {
+        super(url, group, policy);
     }
 
     @Override
