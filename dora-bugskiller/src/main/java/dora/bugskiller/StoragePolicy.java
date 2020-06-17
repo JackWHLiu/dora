@@ -30,9 +30,9 @@ public class StoragePolicy extends CrashReportPolicyWrapper {
         this.mFolderName = folderName;
     }
 
-    public StoragePolicy(String folerName) {
+    public StoragePolicy(String folderName) {
         super(null);
-        this.mFolderName = folerName;
+        this.mFolderName = folderName;
     }
 
     @Override

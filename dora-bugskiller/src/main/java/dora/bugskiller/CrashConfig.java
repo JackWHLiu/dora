@@ -6,14 +6,12 @@ public class CrashConfig {
 
     CrashReportPolicy policy;   //崩溃日志上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义
     CrashInfo info;     //包含崩溃信息内容
-    boolean testOnly;   //true则只在debug包收集崩溃日志，false在debug和release包收集崩溃日志
     boolean enabled;    //是否开启崩溃日志收集功能，不开启则testOnly功能无效
     boolean interceptCrash; //收集崩溃信息后，是否让应用闪退，true则不闪退
 
     public CrashConfig(Builder builder) {
         policy = builder.policy;
         info = builder.info;
-        testOnly = builder.testOnly;
         enabled = builder.enabled;
         interceptCrash = builder.interceptCrash;
     }
@@ -23,7 +21,6 @@ public class CrashConfig {
         CrashReportPolicy policy = new StoragePolicy();
         CrashInfo info;
         boolean enabled = true;
-        boolean testOnly = true;
         boolean interceptCrash;
         Context context;
 
@@ -39,11 +36,6 @@ public class CrashConfig {
 
         public Builder crashInfo(CrashInfo info) {
             this.info = info;
-            return this;
-        }
-
-        public Builder testOnly(boolean testOnly) {
-            this.testOnly = testOnly;
             return this;
         }
 
