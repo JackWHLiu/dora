@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * Huh!I make it out of okhttp network framework.
- * 哈！我以网络框架okhttp为原材料制作了它。
+ * I make it out of okhttp network framework.
+ * 我以网络框架okhttp为原材料制作了它。
  */
 public class DoraWebPolicy extends WebPolicyBase {
 

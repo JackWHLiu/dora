@@ -7,7 +7,7 @@ public class CrashConfig {
     CrashReportPolicy policy;   //崩溃信息上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义
     CrashReportFilter filter;   //决定是否要上报该次崩溃信息
     CrashInfo info;     //包含崩溃信息内容
-    boolean enabled;    //是否开启崩溃日志收集功能，不开启则testOnly功能无效
+    boolean enabled;    //是否开启崩溃日志收集功能
     boolean interceptCrash; //收集崩溃信息后，是否让应用闪退，true则不闪退
 
     public CrashConfig(Builder builder) {
@@ -37,6 +37,9 @@ public class CrashConfig {
             return this;
         }
 
+        // Either you create a CrashReportFilter directly, or you use the method named
+        // "CrashReportFilterChain#getFilter()".
+        // 要么你直接创建一个CrashReportFilter，要么你使用CrashReportFilterChain的getFilter()方法。
         public Builder filterChain(CrashReportFilter filter) {
             this.filter = filter;
             return this;
