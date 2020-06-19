@@ -45,7 +45,7 @@ public class DoraWebPolicy extends WebPolicyBase {
             params.put("androidVersion", info.getRelease());
             params.put("model", info.getModel());
             params.put("brand", info.getBrand());
-            params.put("exception", info.toString());
+            params.put("ex", info.toString());
             FormEncodingBuilder builder = new FormEncodingBuilder();
             for (String key : params.keySet()) {
                 builder.add(key, params.get(key));
