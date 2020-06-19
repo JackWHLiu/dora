@@ -13,41 +13,39 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-/**
- * I make it out of okhttp network framework.
- * 我以网络框架okhttp为原材料制作了它。
- */
-public class WebPolicy extends WebPolicyBase {
+public class DoraWebPolicy extends WebPolicyBase {
 
-    private HashMap<String,String> mRequestParams;
-
-    public WebPolicy(String url, HashMap<String, String> params) {
+    protected DoraWebPolicy(String url) {
         super(url);
-        this.mRequestParams = params;
     }
 
-    public WebPolicy(String url, HashMap<String, String> params, CrashReportPolicy policy) {
+    protected DoraWebPolicy(String url, CrashReportPolicy policy) {
         super(url, policy);
-        this.mRequestParams = params;
     }
 
-    public WebPolicy(String url, HashMap<String, String> params, CrashReportGroup group) {
+    protected DoraWebPolicy(String url, CrashReportGroup group) {
         super(url, group);
-        this.mRequestParams = params;
     }
 
-    public WebPolicy(String url, HashMap<String, String> params, CrashReportGroup group, CrashReportPolicy policy) {
+    protected DoraWebPolicy(String url, CrashReportGroup group, CrashReportPolicy policy) {
         super(url, group, policy);
-        this.mRequestParams = params;
     }
 
     @Override
     public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
         if (group.counts()) {
+            HashMap<String, String> params = new HashMap<>();
+            params.put("versionName", info.getVersionName());
+            params.put("versionCode", String.valueOf(info.getVersionCode()));
+            params.put("sdkVersion", String.valueOf(info.getSdkVersion()));
+            params.put("androidVersion", info.getRelease());
+            params.put("model", info.getModel());
+            params.put("brand", info.getBrand());
+            params.put("androidException", info.toString());
             OkHttpClient client = new OkHttpClient();
             FormBody.Builder builder = new FormBody.Builder();
-            for (String key : mRequestParams.keySet()) {
-                builder.add(key, mRequestParams.get(key));
+            for (String key : params.keySet()) {
+                builder.add(key, params.get(key));
             }
             RequestBody body = builder.build();
             Request request = new Request.Builder()
