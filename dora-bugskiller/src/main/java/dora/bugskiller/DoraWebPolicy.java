@@ -35,7 +35,13 @@ public class DoraWebPolicy extends WebPolicyBase {
         if (group.counts()) {
             OkHttpClient client = new OkHttpClient();
             HashMap<String, String> params = new HashMap<>();
-            params.put("crash_info", info.toString());
+            params.put("versionName", info.getVersionName());
+            params.put("versionCode", String.valueOf(info.getVersionCode()));
+            params.put("sdkVersion", String.valueOf(info.getSdkVersion()));
+            params.put("androidVersion", info.getRelease());
+            params.put("model", info.getModel());
+            params.put("brand", info.getBrand());
+            params.put("exception", info.toString());
             FormEncodingBuilder builder = new FormEncodingBuilder();
             for (String key : params.keySet()) {
                 builder.add(key, params.get(key));
