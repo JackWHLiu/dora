@@ -1,5 +1,7 @@
 package dora.bugskiller;
 
+import android.util.Log;
+
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -56,6 +58,7 @@ public class DoraWebPolicy extends WebPolicyBase {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Request request, IOException e) {
+                    Log.e("dora", e.toString());
                 }
 
                 @Override
