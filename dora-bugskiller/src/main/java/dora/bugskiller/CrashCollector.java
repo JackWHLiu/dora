@@ -2,7 +2,7 @@ package dora.bugskiller;
 
 public class CrashCollector extends Collector {
 
-    CrashInfo mInfo;
+    private CrashInfo mInfo;
 
     @Override
     public void collect(CrashInfo info) {

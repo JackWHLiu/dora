@@ -75,20 +75,27 @@ public class CrashInfo {
         return thread;
     }
 
-    public Throwable getThrowable() {
-        return throwable;
-    }
-
-    public Context getContext() {
-        return context;
-    }
-
     public void setThread(Thread thread) {
         this.thread = thread;
     }
 
-    public void setException(Throwable e) {
+    public void setThrowable(Throwable e) {
         this.throwable = e;
+    }
+
+    public Throwable getThrowable() {
+        return throwable;
+    }
+
+    public String getException() {
+        if (throwable != null) {
+            return buildStackTrace(throwable.getStackTrace());
+        }
+        return "";
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     @Override
@@ -101,10 +108,10 @@ public class CrashInfo {
                 + "\n版本名称：" + versionName
                 + "\n版本号：" + versionCode
                 + "\n异常信息：" + throwable.toString()
-                + buildStackTrace(throwable.getStackTrace());
+                + getException();
     }
 
-    public String buildStackTrace(StackTraceElement[] lines) {
+    private String buildStackTrace(StackTraceElement[] lines) {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement line : lines) {
             sb.append("\n").append("at ").append(line.getClassName()).append(".").append(line.getMethodName())

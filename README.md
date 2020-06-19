@@ -11,7 +11,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.JackWHLiu:dora:2.0'
+    implementation 'com.github.JackWHLiu:dora:2.0.1'
 }
 
 示例代码：https://github.com/JackWHLiu/DoraDemo.git
