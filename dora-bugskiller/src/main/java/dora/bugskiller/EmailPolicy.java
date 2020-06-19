@@ -1,9 +1,11 @@
 package dora.bugskiller;
 
+import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -48,11 +50,15 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
                     .url(mEmailServerUrl)
                     .post(body)
                     .build();
-            try {
-                client.newCall(request).execute();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Request request, IOException e) {
+                }
+
+                @Override
+                public void onResponse(Response response) throws IOException {
+                }
+            });
         }
     }
 }
