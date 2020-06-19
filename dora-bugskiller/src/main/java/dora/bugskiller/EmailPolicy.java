@@ -12,7 +12,7 @@ public class EmailPolicy extends CrashReportPolicyWrapper {
 
     private String mEmail;   //接收者的Email
     private String mTitle;   //接收者的Email标题
-    private String mEmailServerUrl = "http://47.75.216.2:8080/requestCrashEmail";
+    private String mEmailServerUrl = "http://doramusic.site:8080/requestCrashEmail";
 
     public EmailPolicy(String email, String title, CrashReportPolicy policy) {
         this(email, title, new DefaultGroup(), policy);
