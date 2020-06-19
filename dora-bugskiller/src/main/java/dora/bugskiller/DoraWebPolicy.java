@@ -14,19 +14,19 @@ import java.util.HashMap;
  */
 public class DoraWebPolicy extends WebPolicyBase {
 
-    protected DoraWebPolicy(String url) {
+    public DoraWebPolicy(String url) {
         super(url);
     }
 
-    protected DoraWebPolicy(String url, CrashReportPolicy policy) {
+    public DoraWebPolicy(String url, CrashReportPolicy policy) {
         super(url, policy);
     }
 
-    protected DoraWebPolicy(String url, CrashReportGroup group) {
+    public DoraWebPolicy(String url, CrashReportGroup group) {
         super(url, group);
     }
 
-    protected DoraWebPolicy(String url, CrashReportGroup group, CrashReportPolicy policy) {
+    public DoraWebPolicy(String url, CrashReportGroup group, CrashReportPolicy policy) {
         super(url, group, policy);
     }
 
