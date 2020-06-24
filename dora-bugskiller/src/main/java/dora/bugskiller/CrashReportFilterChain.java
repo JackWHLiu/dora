@@ -8,7 +8,7 @@ public class CrashReportFilterChain {
     private List<CrashReportFilter> mFilters;
 
     public CrashReportFilterChain() {
-        mFilters = new LinkedList<>();
+        mFilters = new LinkedList<CrashReportFilter>();
     }
 
     public CrashReportFilterChain addFirst(CrashReportFilter filter) {

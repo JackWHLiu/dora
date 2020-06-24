@@ -34,7 +34,7 @@ public class DoraWebPolicy extends WebPolicyBase {
     @Override
     public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
         if (group.counts()) {
-            HashMap<String, String> params = new HashMap<>();
+            HashMap<String, String> params = new HashMap<String, String>();
             params.put("versionName", info.getVersionName());
             params.put("versionCode", String.valueOf(info.getVersionCode()));
             params.put("sdkVersion", String.valueOf(info.getSdkVersion()));
