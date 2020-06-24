@@ -6,30 +6,32 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 
 /**
+ * Developers can extend this custom crash information so that the toString() method must be
+ * overridden to take effect.
  * 开发者可以扩展此类来自定义崩溃信息，这样的话，必须重写toString()方法生效。
  */
 public class CrashInfo {
 
-    //版本名称
-    private String versionName;
-    //版本号
-    private int versionCode;
-    //SDK版本号
-    private int sdkVersion;
-    //Android版本号
-    private String release;
-    //手机型号
-    private String model;
-    //手机制造商
-    private String brand;
-    //崩溃线程
-    private Thread thread;
-    //崩溃异常信息
-    private Throwable throwable;
+    private String versionName; //版本名称
+
+    private int versionCode;    //版本号
+
+    private int sdkVersion; //SDK版本号
+
+    private String release; //Android版本号
+
+    private String model;   //手机型号
+
+    private String brand;   //手机制造商
+
+    private Thread thread;  //崩溃线程
+
+    private Throwable throwable;    //崩溃异常信息
     private Context context;
 
     public CrashInfo(Context context) {
         this.context = context;
+        //Gets some information about mobile phone.
         //获取手机的一些信息
         PackageManager pm = context.getPackageManager();
         PackageInfo pkgInfo;
@@ -100,7 +102,7 @@ public class CrashInfo {
 
     @Override
     public String toString() {
-        return "\nCrash线程："+thread.getName()+"#"+thread.getId()
+        return "\nCrash线程：" + thread.getName() + "#" + thread.getId()
                 + "\n手机型号：" + model
                 + "\n手机品牌：" + brand
                 + "\nSDK版本：" + sdkVersion
@@ -115,7 +117,7 @@ public class CrashInfo {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement line : lines) {
             sb.append("\n").append("at ").append(line.getClassName()).append(".").append(line.getMethodName())
-                    .append("(").append(line.getFileName()+":"+line.getLineNumber()).append(")");
+                    .append("(").append(line.getFileName() + ":" + line.getLineNumber()).append(")");
         }
         return sb.toString();
     }

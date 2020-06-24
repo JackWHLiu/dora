@@ -24,7 +24,7 @@ public class CrashReportFilterChain {
     public CrashReportFilter getFilter() {
         CrashReportFilter first = null;
         CrashReportFilter last = null; //上次的
-        for (int i=0;i < mFilters.size();i++) {
+        for (int i = 0; i < mFilters.size(); i++) {
             CrashReportFilter filter = mFilters.get(i);
             if (i == 0) {
                 first = filter;

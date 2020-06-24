@@ -8,10 +8,10 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     private Context mContext;
     private CrashConfig mConfig;
 
-    private Thread.UncaughtExceptionHandler mDefaultExceptionHandler;//系统的默认异常处理类
+    private Thread.UncaughtExceptionHandler mDefaultExceptionHandler;
 
     private static DoraUncaughtExceptionHandler sInstance
-            = new DoraUncaughtExceptionHandler();//用户自定义的异常处理类
+            = new DoraUncaughtExceptionHandler();
 
     private DoraUncaughtExceptionHandler() {
     }
@@ -40,11 +40,15 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
             }
         }
         if (!mConfig.interceptCrash) {
-            //如果系统提供了异常处理类，则交给系统去处理
+            // If the Android system provides an exception handling class, it shall have handled
+            // by the system.
+            // 如果系统提供了异常处理类，则交给系统去处理
             if (mDefaultExceptionHandler != null) {
                 mDefaultExceptionHandler.uncaughtException(t, e);
             } else {
-                //否则我们自己处理，自己处理通常是让app退出
+                // Otherwise we handle it ourselves, we handle it ourselves usually by letting
+                // the app exit
+                // 否则我们自己处理，自己处理通常是让app退出
                 Process.killProcess(Process.myPid());
                 System.exit(0);
             }
@@ -52,7 +56,8 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public void interceptException(Thread t, Throwable e) {
-        //收集异常信息，做我们自己的处理
+        // Collect exception information and do our own handling
+        // 收集异常信息，做我们自己的处理
         Collector collector = new CrashCollector();
         CrashInfo info = mConfig.info;
         info.setThrowable(e);

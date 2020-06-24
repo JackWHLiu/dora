@@ -14,12 +14,12 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * I make it out of okhttp network framework.
- * 我以网络框架okhttp为原材料制作了它。
+ * I make it out of okhttp3 network framework.
+ * 我以网络框架okhttp3为原材料制作了它。
  */
 public class WebPolicy extends WebPolicyBase {
 
-    private HashMap<String,String> mRequestParams;
+    private HashMap<String, String> mRequestParams;
 
     public WebPolicy(String url, HashMap<String, String> params) {
         super(url);
