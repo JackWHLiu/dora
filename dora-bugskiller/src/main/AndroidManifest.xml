@@ -1,3 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dora.bugskiller">
-</manifest>
+<manifest package="dora.bugskiller"/>
