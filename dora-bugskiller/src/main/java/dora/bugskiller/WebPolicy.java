@@ -31,18 +31,18 @@ public class WebPolicy extends WebPolicyBase {
         this.mRequestParams = params;
     }
 
-    public WebPolicy(String url, HashMap<String, String> params, CrashReportGroup group) {
+    public WebPolicy(String url, HashMap<String, String> params, Group group) {
         super(url, group);
         this.mRequestParams = params;
     }
 
-    public WebPolicy(String url, HashMap<String, String> params, CrashReportGroup group, CrashReportPolicy policy) {
+    public WebPolicy(String url, HashMap<String, String> params, Group group, CrashReportPolicy policy) {
         super(url, group, policy);
         this.mRequestParams = params;
     }
 
     @Override
-    public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
+    public void sendCrashInfoToWeb(String url, CrashInfo info, Group group) {
         if (group.counts()) {
             OkHttpClient client = new OkHttpClient();
             FormBody.Builder builder = new FormBody.Builder();

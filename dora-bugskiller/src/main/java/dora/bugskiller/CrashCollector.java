@@ -1,19 +1,20 @@
 package dora.bugskiller;
 
-public class CrashCollector extends Collector {
+public class CrashCollector extends Collector<CrashInfo, CrashReportPolicy> {
 
     private CrashInfo mInfo;
 
     @Override
     public void collect(CrashInfo info) {
-        mInfo = info;
+        this.mInfo = info;
     }
 
     @Override
-    public void reportCrash(Thread thread, CrashReportPolicy policy) {
-        if (mInfo != null) {
-            mInfo.setThread(thread);
-            policy.report(mInfo, policy.getGroup());
-        }
+    public void report(CrashReportPolicy policy) {
+        reportCrash(policy, policy.getGroup());
+    }
+
+    private void reportCrash(CrashReportPolicy policy, Group group) {
+        policy.report(mInfo, group);
     }
 }

@@ -6,7 +6,7 @@ import android.os.Build;
  * The group of Android mobile phone system version, for example, Android 6.0.
  * 安卓手机版本分组，例如Android6.0。
  */
-public class AndroidVersionGroup implements CrashReportGroup {
+public class AndroidVersionGroup implements Group {
 
     private String version;
 

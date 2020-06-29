@@ -1,6 +1,6 @@
 package dora.bugskiller;
 
-public class DefaultGroup implements CrashReportGroup {
+public class DefaultGroup implements Group {
 
     @Override
     public boolean counts() {

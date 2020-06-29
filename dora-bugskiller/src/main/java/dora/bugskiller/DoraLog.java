@@ -4,9 +4,9 @@ import android.util.Log;
 
 /**
  * A system that controls log output globally. When flag is closed, you can't output logs anywhere.
- * Instead, you can output logs anywhere.<note>The log system is closed by default.</note>
+ * Instead, you can output logs anywhere.<note>The log system is opened by default.</note>
  * 控制全局日志输出的系统。当关闭标志时，您不能将日志输出到任何地方。
- * 相反，您可以将日志输出到任何地方。注意：日志系统默认关闭。
+ * 相反，您可以将日志输出到任何地方。注意：日志系统默认开启。
  */
 public class DoraLog {
 
@@ -21,6 +21,37 @@ public class DoraLog {
      * 默认日志输出标记。
      */
     private static final String TAG = DoraLog.class.getSimpleName().toLowerCase();
+
+    private static DoraLog CHANNEL = new DoraLog();
+    private Collector mCollector;
+    private Policy mLogPolicy;
+
+    private DoraLog() {
+        mCollector = new LogCollector();
+        mLogPolicy = new LogFilePolicy();
+    }
+
+    private DoraLog(LogReportPolicy policy) {
+        this();
+        setLogPolicy(policy);
+    }
+
+    public void setLogPolicy(LogReportPolicy policy) {
+        this.mLogPolicy = policy;
+    }
+
+    private static DoraLog getChannel() {
+        return CHANNEL;
+    }
+
+    private void _print(LogInfo info) {
+        mCollector.collect(info);
+        mCollector.report(mLogPolicy);
+    }
+
+    public static void print(LogInfo info) {
+        CHANNEL._print(info);
+    }
 
     public static void close() {
         DEBUG = false;

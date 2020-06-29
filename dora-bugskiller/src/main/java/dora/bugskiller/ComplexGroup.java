@@ -4,7 +4,7 @@ package dora.bugskiller;
  * It can combine two or more groups.
  * 可以用来组合2种或2种以上的分组。
  */
-public class ComplexGroup implements CrashReportGroup {
+public class ComplexGroup implements Group {
 
     /**
      * Intersection.
@@ -25,22 +25,22 @@ public class ComplexGroup implements CrashReportGroup {
     public static final String SYMBOL_SUPPLEMENTARY_SET = "^";
 
     private String mSymbol;
-    private CrashReportGroup mLeft;
-    private CrashReportGroup mRight;
+    private Group mLeft;
+    private Group mRight;
 
-    public static ComplexGroup and(CrashReportGroup left, CrashReportGroup right) {
+    public static ComplexGroup and(Group left, Group right) {
         return new ComplexGroup(SYMBOL_INTERSECTION, left, right);
     }
 
-    public static ComplexGroup or(CrashReportGroup left, CrashReportGroup right) {
+    public static ComplexGroup or(Group left, Group right) {
         return new ComplexGroup(SYMBOL_UNION_SET, left, right);
     }
 
-    public static ComplexGroup not(CrashReportGroup left, CrashReportGroup right) {
+    public static ComplexGroup not(Group left, Group right) {
         return new ComplexGroup(SYMBOL_SUPPLEMENTARY_SET, left, right);
     }
 
-    ComplexGroup(String symbol, CrashReportGroup left, CrashReportGroup right) {
+    ComplexGroup(String symbol, Group left, Group right) {
         this.mSymbol = symbol;
         this.mLeft = left;
         this.mRight = right;

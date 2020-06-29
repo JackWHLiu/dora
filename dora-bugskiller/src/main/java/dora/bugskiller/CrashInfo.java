@@ -10,7 +10,7 @@ import android.os.Build;
  * overridden to take effect.
  * 开发者可以扩展此类来自定义崩溃信息，这样的话，必须重写toString()方法生效。
  */
-public class CrashInfo {
+public class CrashInfo implements Info {
 
     private String versionName; //版本名称
 

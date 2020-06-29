@@ -61,7 +61,8 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
         Collector collector = new CrashCollector();
         CrashInfo info = mConfig.info;
         info.setThrowable(e);
+        info.setThread(t);
         collector.collect(info);
-        collector.reportCrash(t, mConfig.policy);
+        collector.report(mConfig.policy);
     }
 }

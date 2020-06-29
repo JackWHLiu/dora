@@ -2,7 +2,7 @@ package dora.bugskiller;
 
 import android.os.Build;
 
-public abstract class BrandGroup implements CrashReportGroup {
+public abstract class BrandGroup implements Group {
 
     public abstract String getBrandName();
 

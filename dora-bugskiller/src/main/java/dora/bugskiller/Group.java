@@ -5,7 +5,7 @@ package dora.bugskiller;
  * policies.
  * 制作名叫分组的架构花费了我很长时间，分组被用来分发策略。
  */
-public interface CrashReportGroup {
+public interface Group {
 
     /**
      * Through calculation, determine whether the group of rules.

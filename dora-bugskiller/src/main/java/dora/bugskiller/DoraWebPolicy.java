@@ -23,16 +23,16 @@ public class DoraWebPolicy extends WebPolicyBase {
         super(url, policy);
     }
 
-    public DoraWebPolicy(String url, CrashReportGroup group) {
+    public DoraWebPolicy(String url, Group group) {
         super(url, group);
     }
 
-    public DoraWebPolicy(String url, CrashReportGroup group, CrashReportPolicy policy) {
+    public DoraWebPolicy(String url, Group group, CrashReportPolicy policy) {
         super(url, group, policy);
     }
 
     @Override
-    public void sendCrashInfoToWeb(String url, CrashInfo info, CrashReportGroup group) {
+    public void sendCrashInfoToWeb(String url, CrashInfo info, Group group) {
         if (group.counts()) {
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("versionName", info.getVersionName());

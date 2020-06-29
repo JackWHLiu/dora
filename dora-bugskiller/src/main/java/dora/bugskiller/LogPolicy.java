@@ -21,7 +21,7 @@ public class LogPolicy extends CrashReportPolicyWrapper {
         this(level, new DefaultGroup());
     }
 
-    public LogPolicy(CrashReportGroup group) {
+    public LogPolicy(Group group) {
         super(group, null);
     }
 
@@ -29,7 +29,7 @@ public class LogPolicy extends CrashReportPolicyWrapper {
         this(new DefaultGroup(), policy);
     }
 
-    public LogPolicy(int level, CrashReportGroup group) {
+    public LogPolicy(int level, Group group) {
         super(group, null);
         this.mLevel = level;
     }
@@ -38,17 +38,17 @@ public class LogPolicy extends CrashReportPolicyWrapper {
         this(level, new DefaultGroup(), policy);
     }
 
-    public LogPolicy(CrashReportGroup group, CrashReportPolicy policy) {
+    public LogPolicy(Group group, CrashReportPolicy policy) {
         super(group, policy);
     }
 
-    public LogPolicy(int level, CrashReportGroup group, CrashReportPolicy policy) {
+    public LogPolicy(int level, Group group, CrashReportPolicy policy) {
         super(group, policy);
         this.mLevel = level;
     }
 
     @Override
-    public void report(final CrashInfo info, CrashReportGroup group) {
+    public void report(final CrashInfo info, Group group) {
         super.report(info, group);
         if (group.counts()) {
             if (mLevel == LOG_LEVEL_DEBUG) {
