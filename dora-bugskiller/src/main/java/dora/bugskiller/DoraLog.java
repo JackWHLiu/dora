@@ -40,7 +40,7 @@ public class DoraLog {
         this.mLogPolicy = policy;
     }
 
-    private static DoraLog getChannel() {
+    public static DoraLog getChannel() {
         return CHANNEL;
     }
 
