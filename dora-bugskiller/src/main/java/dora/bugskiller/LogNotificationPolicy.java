@@ -1,6 +1,5 @@
 package dora.bugskiller;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,7 +8,7 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-public class LogNotificationPolicy extends LogReportPolicyWrapper {
+public class LogNotificationPolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
 
     private Context mContext;
 
@@ -42,10 +41,10 @@ public class LogNotificationPolicy extends LogReportPolicyWrapper {
                 PendingIntent pi = PendingIntent.getActivity(mContext, 0x00, new Intent(), 0);
                 NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
                 Notification notification = new NotificationCompat.Builder(mContext)
-                        .setContentTitle("测试标题")
-                        .setContentText("测试内容")
+                        .setContentTitle("Dora Tips")
+                        .setContentText(info.getContent())
                         .setContentIntent(pi)
-                        .setTicker("测试通知来啦")
+                        .setTicker(info.getTag())
                         .setWhen(System.currentTimeMillis())
                         .setPriority(Notification.PRIORITY_DEFAULT)
                         .setAutoCancel(true)

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LogFilePolicy extends LogReportPolicyWrapper {
+public class LogFilePolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
 
     private String mFolderName = "android-dora"; //手机系统根目录保存日志文件夹的名称
 

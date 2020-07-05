@@ -1,13 +1,10 @@
 package dora.bugskiller;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.Environment;
-import android.util.Log;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class LogConsolePolicy extends LogReportPolicyWrapper {
+public class LogConsolePolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
 
     private Activity mActivity;
 

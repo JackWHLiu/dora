@@ -53,6 +53,10 @@ public class DoraLog {
         CHANNEL._print(info);
     }
 
+    public static void print(String log) {
+        print(new LogInfo(log));
+    }
+
     public static void close() {
         DEBUG = false;
     }
