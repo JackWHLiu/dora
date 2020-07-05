@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class LogConsolePolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
+public class LogConsolePolicy extends LogReportPolicy {
 
     private Activity mActivity;
 

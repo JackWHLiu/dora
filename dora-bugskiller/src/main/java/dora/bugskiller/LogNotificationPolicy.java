@@ -8,7 +8,7 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
-public class LogNotificationPolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
+public class LogNotificationPolicy extends LogReportPolicy {
 
     private Context mContext;
 
