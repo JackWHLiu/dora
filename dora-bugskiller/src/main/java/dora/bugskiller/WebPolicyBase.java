@@ -1,6 +1,6 @@
 package dora.bugskiller;
 
-public abstract class WebPolicyBase extends CrashReportPolicyWrapper {
+public abstract class WebPolicyBase extends CrashReportPolicy {
 
     private String mRequestUrl;
 
