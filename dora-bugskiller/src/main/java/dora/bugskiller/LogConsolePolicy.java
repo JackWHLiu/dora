@@ -1,6 +1,8 @@
 package dora.bugskiller;
 
 import android.app.Activity;
+import android.view.View;
+import android.view.ViewParent;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -34,7 +36,15 @@ public class LogConsolePolicy extends LogReportPolicy {
                 return;
             }
             if (mActivity != null) {
-                Snackbar.make(mActivity.getWindow().getDecorView(), info.getContent(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(mActivity.getWindow().getDecorView(), info.getContent(), Snackbar.LENGTH_LONG)
+                        .setAction("确认", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Snackbar snackbar = (Snackbar) v.getParent();
+                                snackbar.dismiss();
+                            }
+                        })
+                        .show();
             }
         }
     }
