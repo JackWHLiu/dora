@@ -37,7 +37,7 @@ public class LogConsolePolicy extends LogReportPolicy {
                 return;
             }
             if (mActivity != null) {
-                Snackbar.make(mActivity.getWindow().getDecorView(), info.getContent(), Snackbar.LENGTH_LONG)
+                Snackbar.make(mActivity.getWindow().getDecorView(), info.getContent(), Snackbar.LENGTH_INDEFINITE)
                         .setAction("确认", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
