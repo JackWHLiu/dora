@@ -38,7 +38,7 @@ public class LogNotificationPolicy extends LogReportPolicy {
                 return;
             }
             if (mContext != null) {
-                PendingIntent pi = PendingIntent.getActivity(mContext, 0x00, new Intent(), 0);
+                PendingIntent pi = PendingIntent.getActivity(mContext, 0x00, new Intent(), PendingIntent.FLAG_CANCEL_CURRENT);
                 NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
                 Notification notification = new NotificationCompat.Builder(mContext)
                         .setContentTitle("Dora Tips")

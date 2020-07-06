@@ -1,8 +1,5 @@
 package dora.bugskiller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class LogInfo implements Info {
 
     private String tag = "dora";
