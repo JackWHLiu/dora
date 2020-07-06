@@ -54,14 +54,20 @@ public class DoraNotificationService extends Service {
         }
         Notification notification;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            notification = new NotificationCompat.Builder(this).build();
+            notification = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.mipmap.dora_logo)
+                    .setTicker(title)
+                    .setContentIntent(mPendingIntent)
+                    .setCustomContentView(mRemoteViews)
+                    .build();
         } else {
-            notification = new Notification.Builder(this).setChannelId(channelId).build();
+            notification = new Notification.Builder(this)
+                    .setSmallIcon(R.mipmap.dora_logo)
+                    .setTicker(title)
+                    .setContentIntent(mPendingIntent)
+                    .setCustomContentView(mRemoteViews)
+                    .setChannelId(channelId).build();
         }
-        notification.icon = R.mipmap.dora_logo;
-        notification.tickerText = title;
-        notification.contentIntent = mPendingIntent;
-        notification.contentView = mRemoteViews;
         notification.flags = Notification.FLAG_NO_CLEAR;
         mRemoteViews.setTextViewText(R.id.tv_dora_title, title);
         mRemoteViews.setTextViewText(R.id.tv_dora_content, content);
