@@ -1,4 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dora.bugskiller">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <application>
+        <service
+            android:process=":dora"
+            android:name=".DoraNotificationService">
+            <intent-filter>
+                <action android:name="dora.bugskiller.action.ACTION_NOTIFICATION_SERVICE"/>
+            </intent-filter>
+        </service>
+    </application>
 </manifest>
