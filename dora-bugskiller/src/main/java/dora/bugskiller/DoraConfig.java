@@ -17,6 +17,7 @@ public class DoraConfig {
         info = builder.info;
         enabled = builder.enabled;
         interceptCrash = builder.interceptCrash;
+        initLogNotification = builder.initLogNotification;
     }
 
     public static class Builder {

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewParent;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.snackbar.SnackbarContentLayout;
 
 public class LogConsolePolicy extends LogReportPolicy {
 
@@ -37,7 +38,11 @@ public class LogConsolePolicy extends LogReportPolicy {
             }
             if (mActivity != null) {
                 Snackbar.make(mActivity.getWindow().getDecorView(), info.getContent(), Snackbar.LENGTH_LONG)
-                        .show();
+                        .setAction("确认", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                            }
+                        }).show();
             }
         }
     }
