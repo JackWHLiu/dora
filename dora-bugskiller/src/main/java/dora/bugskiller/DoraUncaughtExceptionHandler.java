@@ -6,12 +6,13 @@ import android.os.Process;
 class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private Context mContext;
-    private CrashConfig mConfig;
+    private DoraConfig mConfig;
 
     private Thread.UncaughtExceptionHandler mDefaultExceptionHandler;
 
     private static DoraUncaughtExceptionHandler sInstance
             = new DoraUncaughtExceptionHandler();
+    private DoraNotificationManager mNotificationManager;
 
     private DoraUncaughtExceptionHandler() {
     }
@@ -20,9 +21,13 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
         return sInstance;
     }
 
-    void init(Context context, CrashConfig config) {
+    void init(Context context, DoraConfig config) {
         this.mContext = context.getApplicationContext();
         this.mConfig = config;
+        if (config.enabled && config.initLogNotification) {
+            mNotificationManager = new DoraNotificationManager(mContext);
+            mNotificationManager.connectService();
+        }
         mDefaultExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
@@ -31,12 +36,19 @@ class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
         return mContext;
     }
 
+    DoraNotificationManager getNotificationManager() {
+        return mNotificationManager;
+    }
+
     @Override
     public void uncaughtException(Thread t, Throwable e) {
         if (mConfig.enabled) {
             boolean filterResult = mConfig.filter.filterCrashInfo(mConfig.info);
             if (filterResult) {
                 interceptException(t, e);
+            }
+            if (mNotificationManager != null) {
+                mNotificationManager.disconnectService();
             }
         }
         if (!mConfig.interceptCrash) {

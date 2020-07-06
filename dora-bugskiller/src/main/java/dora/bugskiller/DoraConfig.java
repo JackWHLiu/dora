@@ -2,15 +2,16 @@ package dora.bugskiller;
 
 import android.content.Context;
 
-public class CrashConfig {
+public class DoraConfig {
 
     CrashReportPolicy policy;   //崩溃信息上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义
     CrashReportFilter filter;   //决定是否要上报该次崩溃信息
     CrashInfo info;     //包含崩溃信息内容
     boolean enabled;    //是否开启崩溃日志收集功能
     boolean interceptCrash; //收集崩溃信息后，是否让应用闪退，true则不闪退
+    boolean initLogNotification;    //是否初始化日志通知服务
 
-    public CrashConfig(Builder builder) {
+    public DoraConfig(Builder builder) {
         policy = builder.policy;
         filter = builder.filter;
         info = builder.info;
@@ -25,6 +26,7 @@ public class CrashConfig {
         CrashInfo info;
         boolean enabled = true;
         boolean interceptCrash;
+        boolean initLogNotification;
         Context context;
 
         public Builder(Context context) {
@@ -62,8 +64,13 @@ public class CrashConfig {
             return this;
         }
 
-        public CrashConfig build() {
-            CrashConfig config = new CrashConfig(this);
+        public Builder initLogNotification(boolean initLogNotification) {
+            this.initLogNotification = initLogNotification;
+            return this;
+        }
+
+        public DoraConfig build() {
+            DoraConfig config = new DoraConfig(this);
             if (context != null) {
                 DoraUncaughtExceptionHandler.getInstance().init(context, config);
             }

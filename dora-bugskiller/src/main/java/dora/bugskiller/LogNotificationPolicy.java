@@ -18,6 +18,7 @@ public class LogNotificationPolicy extends LogReportPolicy {
     public LogNotificationPolicy(Context context, Group group) {
         super(group, null);
         this.mContext = context;
+        this.mNotificationManager = DoraUncaughtExceptionHandler.getInstance().getNotificationManager();
     }
 
     public LogNotificationPolicy(Context context, LogReportPolicy policy) {
@@ -27,6 +28,7 @@ public class LogNotificationPolicy extends LogReportPolicy {
     public LogNotificationPolicy(Context context, Group group, LogReportPolicy policy) {
         super(group, policy);
         this.mContext = context;
+        this.mNotificationManager = DoraUncaughtExceptionHandler.getInstance().getNotificationManager();
     }
 
     public DoraNotificationManager getNotificationManager() {
@@ -41,9 +43,11 @@ public class LogNotificationPolicy extends LogReportPolicy {
                 return;
             }
             if (mContext != null) {
-                mNotificationManager = new DoraNotificationManager(mContext);
-                mNotificationManager.connectService();
-                mNotificationManager.updateNotification(info.getTag(), info.getContent());
+                if (mNotificationManager  != null) {
+                    mNotificationManager.updateNotification(info.getTag(), info.getContent());
+                } else {
+                    throw new RuntimeException("Configure true for DoraConfig#initLogNotification()");
+                }
             }
         }
     }
