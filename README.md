@@ -2,7 +2,7 @@
 
 简介：这是一个为Android应用开发者量身定做的专业debug框架，专注于崩溃日志的收集。
 
-![img](http://doramusic.site/images/DoraDemo.gif)
+![img](http://doramusic.site/images/DoraDemo.gif width="360")
 
 优势：轻量级、功能强大、持续更新
 
