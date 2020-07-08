@@ -16,14 +16,16 @@ DoraConfig.Builder(this)
     .crashReportPolicy(StoragePolicy("DoraMusic/log"))
     .build()
 
+
+
 其它可配置属性有：
 
-crashReportPolicy：配置崩溃信息分发的策略
-filterChain：配置过滤器链，可以配置一个也可以多个
-crashInfo：自定义CrashInfo崩溃信息收集类
-enabled：全局功能启用/禁用，默认是true
-interceptCrash：是否拦截app闪退
-initLogNotification：是否初始化日志通知服务，如果用到了LogNotificationPolicy则需要设置为true，否则设置为false可节省性能，默认为false
+**crashReportPolicy**：配置崩溃信息分发的策略
+**filterChain**：配置过滤器链，可以配置一个也可以多个
+**crashInfo**：自定义CrashInfo崩溃信息收集类
+**enabled**：全局功能启用/禁用，默认是true
+**interceptCrash**：是否拦截app闪退
+**initLogNotification**：是否初始化日志通知服务，如果用到了LogNotificationPolicy则需要设置为true，否则设置为false可节省性能，默认为false
 
 
 第一章 自定义CrashInfo
@@ -76,7 +78,7 @@ initLogNotification：是否初始化日志通知服务，如果用到了LogNoti
 
 
 
-2.0.5 版本
+2.0.5 版本
 
 介绍：支持自定义策略、过滤器、分组分发
 
@@ -101,11 +103,11 @@ crash+policy、crash+filter、crash+group、log+policy和log+group。LogConsoleP
 附：需要注意的API
 
 
-| 名称                                                     |    所在类    | 描述                     |
-| -------------------------------------------------------- | :----------: | ------------------------ |
-| info(String log)                                           |    DoraLog    | INFO级别的日志，不需要配置DoraConfig，全局日志开关有效   |
-| error(String log)                               |    DoraLog    | ERROR级别的日志，不需要配置DoraConfig，全局日志开关有效   |
-| debug(String log)                                              |    DoraLog    | DEBUG级别的日志，不需要配置DoraConfig，全局日志开关有效             |
-| warn(String log)                             |    DoraLog    | WARN级别的日志，不需要配置DoraConfig，全局日志开关有效           |
-| verbose(String log)                                           |    DoraLog    | VERBOSE级别的日志，不需要配置DoraConfig，全局日志开关有效             |
-| print(String log)                             |    DoraLog    | 仅当使用到通知策略时，需要配置DoraConfig，全局日志开关无效           |
+| 名称                | 所在类  | 描述                                                       |
+| ------------------- | :-----: | ---------------------------------------------------------- |
+| info(String log)    | DoraLog | INFO级别的日志，不需要配置DoraConfig，全局日志开关有效     |
+| error(String log)   | DoraLog | ERROR级别的日志，不需要配置DoraConfig，全局日志开关有效    |
+| debug(String log)   | DoraLog | DEBUG级别的日志，不需要配置DoraConfig，全局日志开关有效    |
+| warn(String log)    | DoraLog | WARN级别的日志，不需要配置DoraConfig，全局日志开关有效     |
+| verbose(String log) | DoraLog | VERBOSE级别的日志，不需要配置DoraConfig，全局日志开关有效  |
+| print(String log)   | DoraLog | 仅当使用到通知策略时，需要配置DoraConfig，全局日志开关无效 |
