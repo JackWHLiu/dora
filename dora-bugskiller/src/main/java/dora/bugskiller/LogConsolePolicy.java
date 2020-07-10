@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewParent;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.snackbar.SnackbarContentLayout;
 
 public class LogConsolePolicy extends LogReportPolicy {
 

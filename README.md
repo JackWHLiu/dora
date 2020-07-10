@@ -62,7 +62,7 @@ DoraConfig.Builder(this)
 
 第六章 日志系统
 
-首先，日志系统单独使用不需要配置CrashConfig。定义了一个全局的日志控制开关，这个开关仅对输出到LogCat的日志有效，俗称旧日志系统。它有以下方式输出日志，DoraLog.info()、DoraLog.error()、DoraLog.debug()。还有更好用的新日志系统
+首先，日志系统单独使用不需要配置DoraConfig。定义了一个全局的日志控制开关，这个开关仅对输出到LogCat的日志有效，俗称旧日志系统。它有以下方式输出日志，DoraLog.info()、DoraLog.error()、DoraLog.debug()。还有更好用的新日志系统
 
 ，使用方式 DoraLog.print("要写入文件的内容");。开关对新日志系统无效。如果你要在新日志系统改变Policy，
 
