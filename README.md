@@ -2,11 +2,7 @@ Github地址：https://github.com/JackWHLiu/dora.git
 
 ![img](http://doramusic.site/images/DoraDemo.gif)
 
-
-
 fork和star是对我们最好的认可。
-
-
 
 序章
 
