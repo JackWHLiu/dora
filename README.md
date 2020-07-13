@@ -1,3 +1,5 @@
+##### 最新版本![Release](https://jitpack.io/v/JackWHLiu/dora.svg) 
+
 Github地址：https://github.com/JackWHLiu/dora.git
 
 ![img](http://doramusic.site/images/DoraDemo.gif)
