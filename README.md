@@ -88,7 +88,7 @@ DoraConfig.Builder(this)
 
 
 
-2.3 版本
+2.3.1 版本
 
 介绍：一个强大的BUG调试框架，不仅支持被动接收崩溃信息，还支持主动写入日志到文件
 
@@ -97,17 +97,3 @@ DoraConfig.Builder(this)
 crash+policy、crash+filter、crash+group、log+policy和log+group。LogConsolePolicy和LogNotificationPolicy，一个用于应用在前台的输出想要的信息，一个则用于后台运行。随便说一下，崩溃信息保存到手机SD卡的文件名发生改变，由原来的只有崩溃信息时的log+崩溃时间，变为崩溃信息crash+崩溃时间以及日志信息log+日志时间。另外，为了避免语义混淆，原LogPolicy已更名为LogcatPolicy。
 
 所有类：ActivityThreadFilter、AndroidVersionGroup、BrandGroup、Collector、ComplexGroup、CrashCollector、CrashInfo、CrashReportFilter、CrashReportFilterChain、CrashReportPolicy、DefaultFilter、DefaultGroup、DoraConfig、DoraConstants、DoraLog、DoraNotificationManager、DoraNotificationService、DoraUncaughtExceptionHandler、DoraWebPolicy、Group、Info、LogCollector、LogConsolePolicy、LogFilePolicy、LogInfo、LogNotificationPolicy、LogReportPolicy、LogcatPolicy、Policy、PolicyWrapper、StoragePolicy、TimeFilter、WebPolicy、WebPolicyBase
-
-
-
-附：需要注意的API
-
-
-| 名称                | 所在类  | 描述                                                       |
-| ------------------- | :-----: | ---------------------------------------------------------- |
-| info(String log)    | DoraLog | INFO级别的日志，不需要配置DoraConfig，全局日志开关有效     |
-| error(String log)   | DoraLog | ERROR级别的日志，不需要配置DoraConfig，全局日志开关有效    |
-| debug(String log)   | DoraLog | DEBUG级别的日志，不需要配置DoraConfig，全局日志开关有效    |
-| warn(String log)    | DoraLog | WARN级别的日志，不需要配置DoraConfig，全局日志开关有效     |
-| verbose(String log) | DoraLog | VERBOSE级别的日志，不需要配置DoraConfig，全局日志开关有效  |
-| print(String log)   | DoraLog | 仅当使用到通知策略时，需要配置DoraConfig，全局日志开关无效 |
