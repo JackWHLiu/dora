@@ -1,3 +1,5 @@
+##### 最新版本![Release](https://jitpack.io/v/JackWHLiu/dora.svg) 
+
 Github地址：https://github.com/JackWHLiu/dora.git
 
 ![img](http://doramusic.site/images/DoraDemo.gif)
@@ -86,7 +88,7 @@ DoraConfig.Builder(this)
 
 
 
-2.2.9 版本
+2.3 版本
 
 介绍：一个强大的BUG调试框架，不仅支持被动接收崩溃信息，还支持主动写入日志到文件
 
