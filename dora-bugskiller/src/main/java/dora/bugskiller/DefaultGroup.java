@@ -16,11 +16,15 @@
 
 package dora.bugskiller;
 
+/**
+ * Default group, is no group.
+ * 默认的分组，即不分组。
+ */
 public class DefaultGroup implements Group {
 
     @Override
     public boolean counts() {
-        return true;    //所有情况都在默认组
+        return true;
     }
 
     @Override

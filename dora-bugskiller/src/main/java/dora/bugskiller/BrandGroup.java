@@ -18,6 +18,10 @@ package dora.bugskiller;
 
 import android.os.Build;
 
+/**
+ * Group information by phone brand.
+ * 按手机的品牌给信息分组。
+ */
 public abstract class BrandGroup implements Group {
 
     public abstract String getBrandName();

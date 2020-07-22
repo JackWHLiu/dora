@@ -18,6 +18,10 @@ package dora.bugskiller;
 
 import java.util.Calendar;
 
+/**
+ * Filter crash information by time.
+ * 按时间过滤崩溃信息。
+ */
 public class TimeFilter extends CrashReportFilter {
 
     @Override

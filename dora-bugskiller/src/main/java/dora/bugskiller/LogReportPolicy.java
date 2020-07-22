@@ -16,6 +16,10 @@
 
 package dora.bugskiller;
 
+/**
+ * A policy for sending log information.
+ * 发送日志信息的策略。
+ */
 public abstract class LogReportPolicy extends PolicyWrapper<LogInfo, LogReportPolicy> {
 
     protected LogReportPolicy(Group group, LogReportPolicy policy) {

@@ -16,6 +16,10 @@
 
 package dora.bugskiller;
 
+/**
+ * Log information collector.
+ * 日志信息收集器。
+ */
 public class LogCollector extends Collector<LogInfo, LogReportPolicy> {
 
     private LogInfo mInfo;

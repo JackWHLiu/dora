@@ -19,6 +19,10 @@ package dora.bugskiller;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * It is used to combine the superposition of two or more filters.
+ * 通过它来组合两种或两种以上的过滤器的叠加。
+ */
 public class CrashReportFilterChain {
 
     private List<CrashReportFilter> mFilters;

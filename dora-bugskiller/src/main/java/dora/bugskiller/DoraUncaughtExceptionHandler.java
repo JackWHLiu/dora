@@ -19,6 +19,10 @@ package dora.bugskiller;
 import android.content.Context;
 import android.os.Process;
 
+/**
+ * It is used to intercept all exceptions thrown by the application.
+ * 它被用于拦截应用抛出的所有异常。
+ */
 class DoraUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 
     private Context mContext;

@@ -16,6 +16,10 @@
 
 package dora.bugskiller;
 
+/**
+ * Constants that are needed globally.
+ * 全局需要用到的常量。
+ */
 public interface DoraConstants {
 
     String ACTION_NOTIFICATION_SERVICE = "dora.bugskiller.action.ACTION_NOTIFICATION_SERVICE";

@@ -16,11 +16,14 @@
 
 package dora.bugskiller;
 
+/**
+ * No filtering is done by default.
+ * 默认不作过滤处理。
+ */
 public class DefaultFilter extends CrashReportFilter {
 
     @Override
     public boolean handle(CrashInfo info) {
-        //默认不作过滤处理
         return true;
     }
 }

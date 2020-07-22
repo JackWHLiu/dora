@@ -16,6 +16,10 @@
 
 package dora.bugskiller;
 
+/**
+ * You can use it to customize the implementation of collecting crash information to a web page.
+ * 你可以用它自定义收集崩溃信息到网页的实现。
+ */
 public abstract class WebPolicyBase extends CrashReportPolicy {
 
     private String mRequestUrl;

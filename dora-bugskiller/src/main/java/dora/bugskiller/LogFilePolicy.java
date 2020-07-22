@@ -25,6 +25,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Write log information to the SD card of the mobile.
+ * 向手机SD卡写入日志信息。
+ */
 public class LogFilePolicy extends LogReportPolicy {
 
     private String mFolderName = "android-dora"; //手机系统根目录保存日志文件夹的名称

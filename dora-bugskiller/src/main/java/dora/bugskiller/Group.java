@@ -17,9 +17,8 @@
 package dora.bugskiller;
 
 /**
- * It took me a long time to make the architecture that named group, groups are used to distribute
- * policies.
- * 制作名叫分组的架构花费了我很长时间，分组被用来分发策略。
+ * Groups are used to distribute policies.
+ * 分组被用来分发策略。
  */
 public interface Group {
 

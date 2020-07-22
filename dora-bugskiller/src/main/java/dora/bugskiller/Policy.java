@@ -16,6 +16,12 @@
 
 package dora.bugskiller;
 
+/**
+ * Strategies. You can use different strategies to distribute information.
+ * 策略，你可以使用不同的策略来分发信息。
+ *
+ * @param <I>
+ */
 public interface Policy<I extends Info> {
 
     void report(I info, Group group);

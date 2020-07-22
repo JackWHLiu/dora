@@ -29,6 +29,10 @@ import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 
+/**
+ * Writes log information to the notification bar.
+ * 向通知栏写入日志信息。
+ */
 public class DoraNotificationService extends Service {
 
     private IBinder mBinder;

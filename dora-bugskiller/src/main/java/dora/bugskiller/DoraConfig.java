@@ -18,6 +18,11 @@ package dora.bugskiller;
 
 import android.content.Context;
 
+/**
+ * Configuration of global crash information collection, as well as partial log information
+ * collection.
+ * 全局崩溃信息收集的配置，也包括部分日志信息收集的配置。
+ */
 public class DoraConfig {
 
     CrashReportPolicy policy;   //崩溃信息上报策略，提供本地存储、邮件接收、网页查看等内置策略，也可自定义

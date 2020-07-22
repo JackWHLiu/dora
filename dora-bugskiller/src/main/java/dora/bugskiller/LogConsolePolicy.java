@@ -21,6 +21,10 @@ import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
 
+/**
+ * Write log information to the top process of the phone.
+ * 向手机可见界面写入日志信息。
+ */
 public class LogConsolePolicy extends LogReportPolicy {
 
     private Activity mActivity;

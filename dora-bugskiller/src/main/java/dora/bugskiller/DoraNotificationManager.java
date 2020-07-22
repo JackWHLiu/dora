@@ -23,6 +23,10 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 
+/**
+ * It is used to write log information to the notification bar.
+ * 它被用来写入日志信息到通知栏。
+ */
 public class DoraNotificationManager extends INotificationService.Stub {
 
     private Context mContext;
@@ -35,12 +39,10 @@ public class DoraNotificationManager extends INotificationService.Stub {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 mService = asInterface(service);
-                DoraLog.debug("DoraNotificationManager connected.");
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                DoraLog.debug("DoraNotificationManager disconnected.");
             }
         };
     }
