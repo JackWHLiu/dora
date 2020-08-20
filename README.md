@@ -1,5 +1,5 @@
-##### 最新版本![Release](https://jitpack.io/v/JackWHLiu/dora.svg) 
-
+##### 最新版本
+##### ![Release](https://jitpack.io/v/JackWHLiu/dora.svg) 
 
 
 序章
