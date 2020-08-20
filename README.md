@@ -1,8 +1,6 @@
 ##### 最新版本![Release](https://jitpack.io/v/JackWHLiu/dora.svg) 
 
-Github地址：https://github.com/JackWHLiu/dora.git
 
-fork和star是对我们最好的认可。
 
 序章
 
@@ -95,3 +93,7 @@ DoraConfig.Builder(this)
 crash+policy、crash+filter、crash+group、log+policy和log+group。LogConsolePolicy和LogNotificationPolicy，一个用于应用在前台的输出想要的信息，一个则用于后台运行。随便说一下，崩溃信息保存到手机SD卡的文件名发生改变，由原来的只有崩溃信息时的log+崩溃时间，变为崩溃信息crash+崩溃时间以及日志信息log+日志时间。另外，为了避免语义混淆，原LogPolicy已更名为LogcatPolicy。
 
 所有类：ActivityThreadFilter、AndroidVersionGroup、BrandGroup、Collector、ComplexGroup、CrashCollector、CrashInfo、CrashReportFilter、CrashReportFilterChain、CrashReportPolicy、DefaultFilter、DefaultGroup、DoraConfig、DoraConstants、DoraLog、DoraNotificationManager、DoraNotificationService、DoraUncaughtExceptionHandler、DoraWebPolicy、Group、Info、LogCollector、LogConsolePolicy、LogFilePolicy、LogInfo、LogNotificationPolicy、LogReportPolicy、LogcatPolicy、Policy、PolicyWrapper、StoragePolicy、TimeFilter、WebPolicy、WebPolicyBase
+
+如果你觉得有用的话，不妨**star**和**fork**一下！
+回到页首并支持 https://github.com/JackWHLiu/dora.git
+
