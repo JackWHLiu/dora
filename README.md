@@ -1,5 +1,6 @@
-##### Dora Android调试SDK
-##### ![Release](https://jitpack.io/v/JackWHLiu/dora.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a21d48d466644cdbcb57a1889abea5b)](https://www.codacy.com/app/JackWHLiu/dora?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JackWHLiu/dora&amp;utm_campaign=Badge_Grade)
+#### Dora Debug SDK for Android ![Release](https://jitpack.io/v/JackWHLiu/dora.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a21d48d466644cdbcb57a1889abea5b)](https://www.codacy.com/app/JackWHLiu/dora?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JackWHLiu/dora&amp;utm_campaign=Badge_Grade)
+
+
 
 
 序章
@@ -96,4 +97,3 @@ crash+policy、crash+filter、crash+group、log+policy和log+group。LogConsoleP
 
 如果你觉得有用的话，不妨**star**和**fork**一下！
 回到页首并支持 https://github.com/JackWHLiu/dora.git
-
