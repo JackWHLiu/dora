@@ -1,4 +1,4 @@
-#### Dora Debug SDK for Android ![Release](https://jitpack.io/v/JackWHLiu/dora.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a21d48d466644cdbcb57a1889abea5b)](https://www.codacy.com/app/JackWHLiu/dora?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JackWHLiu/dora&amp;utm_campaign=Badge_Grade)
+## Dora Android调试SDK ![Release](https://jitpack.io/v/JackWHLiu/dora.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a21d48d466644cdbcb57a1889abea5b)](https://www.codacy.com/app/JackWHLiu/dora?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JackWHLiu/dora&amp;utm_campaign=Badge_Grade)
 
 
 
