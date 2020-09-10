@@ -5,7 +5,7 @@
 
 序章
 
-在启动页SplashActivity中配置，因为Application中无法申请Android6.0以上的运行时权限。请注意，低版本DoraConfig名叫CrashConfig。
+在启动页SplashActivity中配置，因为Application中无法申请Android6.0以上的运行时权限。请注意，只支持Java项目的收集，低版本DoraConfig名叫CrashConfig。
 
 DoraConfig.Builder(this)
     .crashReportPolicy(StoragePolicy("DoraMusic/log"))
